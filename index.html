@@ -31,39 +31,6 @@
         display: block;
         margin-bottom: 5px;
       }
-      <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matriz de Materialidad ESG</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        background-color: #f4f4f9;
-      }
-      .container {
-        max-width: 1200px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-      h1 {
-        text-align: center;
-        color: #0f766e;
-      }
-      .form-group {
-        margin-bottom: 15px;
-      }
-      label {
-        font-weight: bold;
-        display: block;
-        margin-bottom: 5px;
-      }
       input[type="range"],
       select {
         width: 100%;
@@ -100,13 +67,6 @@
       button:hover {
         background-color: #0d5d56;
       }
-      .narrative {
-        margin-top: 20px;
-        background-color: #f9f9f9;
-        padding: 15px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-      }
     </style>
   </head>
   <body>
@@ -123,7 +83,7 @@
 
       <!-- Sliders -->
       <div class="form-group">
-        <label>Puntuación (%)</label>
+        <label>Puntuación Screening (%)</label>
         <input
           type="range"
           id="score"
@@ -135,7 +95,7 @@
         <span id="scoreDisplay">0%</span>
       </div>
       <div class="form-group">
-        <label>Importancia para Stakeholders (%)</label>
+        <label>Stakeholders (%)</label>
         <input
           type="range"
           id="stakeholder"
@@ -154,13 +114,14 @@
       <table>
         <thead>
           <tr>
-          <th>Tema</th>
-          <th>Categoría</th>
-          <th>ESRS</th>
-          <th>Puntuación (%)</th>
-          <th>Puntuación (%)</th>
-          <th>Stakeholders (%)</th>
-          <th>Materialidad (%)</th>
+            <th>Tema</th>
+            <th>Categoría</th>
+            <th>ESRS</th>
+            <th>ODS</th>
+            <th>KPI</th>
+            <th>Puntuación Screening (%)</th>
+            <th>Stakeholders (%)</th>
+            <th>Materialidad (%)</th>
           </tr>
         </thead>
         <tbody id="resultsTable"></tbody>
@@ -462,9 +423,7 @@
           "stakeholderDisplay"
         ).innerText = `${stakeholders}%`;
 
-        const materialidad = stakeholders
-          ? (score * 0.65 + stakeholders * 0.35).toFixed(2)
-          : score.toFixed(2);
+        const materialidad = (score * 0.65 + stakeholders * 0.35).toFixed(2);
 
         const existing = results.find((r) => r.name === selectedTopic.name);
         if (existing) {
@@ -472,7 +431,12 @@
           existing.stakeholders = stakeholders;
           existing.materialidad = materialidad;
         } else {
-          results.push({ ...selectedTopic, score, stakeholders, materialidad });
+          results.push({
+            ...selectedTopic,
+            score,
+            stakeholders,
+            materialidad,
+          });
         }
 
         updateChart();
@@ -504,7 +468,7 @@
             responsive: true,
             scales: {
               x: {
-                title: { display: true, text: "Puntuación (%)" },
+                title: { display: true, text: "Puntuación Screening (%)" },
                 min: 0,
                 max: 100,
               },
@@ -527,6 +491,8 @@
               <td>${r.name}</td>
               <td>${r.category}</td>
               <td>${r.esrs}</td>
+              <td>${r.ods}</td>
+              <td>${r.kpi}</td>
               <td>${r.score}%</td>
               <td>${r.stakeholders}%</td>
               <td>${r.materialidad}%</td>
@@ -537,11 +503,11 @@
 
       function downloadData() {
         const csv =
-          "data:text/csv;charset=utf-8,Tema,Categoría,Puntuación,Stakeholders,Materialidad\n" +
+          "data:text/csv;charset=utf-8,Tema,Categoría,ESRS,ODS,KPI,Puntuación Screening,Stakeholders,Materialidad\n" +
           results
             .map(
               (r) =>
-                `${r.name},${r.category},${r.score},${r.stakeholders},${r.materialidad}`
+                `${r.name},${r.category},${r.esrs},${r.ods},${r.kpi},${r.score},${r.stakeholders},${r.materialidad}`
             )
             .join("\n");
 

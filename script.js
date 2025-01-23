@@ -1,186 +1,249 @@
 const esgTopics = [
   // Environmental Topics
   {
-    name: "Gestión de Residuos",
+    name: "Biodiversidad",
     category: "Environmental",
-    esrs: "E9",
-    ods: "12",
-    kpi: "Reducción de residuos generados (%)",
-    taxonomy: "esrs_WasteManagement",
-    priority: { min: 60, max: 100 }
-  },
-  {
-    name: "Energía",
-    category: "Environmental",
-    esrs: "E1",
-    ods: "7",
-    kpi: "Consumo energético (MWh)",
-    taxonomy: "esrs_EnergyConsumption",
-    priority: { min: 45, max: 100 }
+    esrs: "E4",
+    ods: "15",
+    kpi: "Área verde por estudiante (m²)",
+    taxonomy: "esrs_BiodiversityImpact",
+    priority: { min: 0, max: 100 }
   },
   {
     name: "Gestión del Agua",
     category: "Environmental",
     esrs: "E2",
     ods: "6",
-    kpi: "Consumo de agua (m³)",
+    kpi: "Consumo de agua por estudiante (m³)",
     taxonomy: "esrs_WaterResourceManagement",
-    priority: { min: 45, max: 100 }
-  },
-  {
-    name: "Biodiversidad",
-    category: "Environmental",
-    esrs: "E4",
-    ods: "15",
-    kpi: "Área protegida (hectáreas)",
-    taxonomy: "esrs_BiodiversityImpact",
-    priority: { min: 0, max: 70 }
+    priority: { min: 0, max: 100 }
   },
   {
     name: "Vertidos",
     category: "Environmental",
     esrs: "E3",
     ods: "14",
-    kpi: "Reducción de vertidos (%)",
-    taxonomy: "esrs_WasteDischarge",
-    priority: { min: 10, max: 75 }
+    kpi: "Gestión de vertidos (%)",
+    taxonomy: "esrs_WaterDischarge",
+    priority: { min: 0, max: 100 }
+  },
+  {
+    name: "Energía",
+    category: "Environmental",
+    esrs: "E1",
+    ods: "7",
+    kpi: "Consumo energético por estudiante (kWh)",
+    taxonomy: "esrs_EnergyConsumption",
+    priority: { min: 0, max: 100 }
   },
   {
     name: "Emisiones",
     category: "Environmental",
     esrs: "E5",
     ods: "13",
-    kpi: "Reducción de emisiones CO₂ (%)",
+    kpi: "Huella de carbono por estudiante (tCO₂e)",
     taxonomy: "esrs_EmissionsReduction",
-    priority: { min: 35, max: 95 }
+    priority: { min: 0, max: 100 }
   },
   {
     name: "Urbanización Sostenible",
     category: "Environmental",
-    esrs: "E10",
+    esrs: "E7",
     ods: "11",
-    kpi: "Proyectos de urbanización sostenible",
+    kpi: "Índice de urbanización sostenible (%)",
     taxonomy: "esrs_SustainableUrbanization",
-    priority: { min: 0, max: 40 }
+    priority: { min: 0, max: 100 }
   },
   {
-    name: "Construcción Ecológica",
+    name: "Construcción Ecológica y Gestión del Espacio",
     category: "Environmental",
     esrs: "E6",
     ods: "11",
-    kpi: "Proyectos certificados LEED/BREEAM",
-    taxonomy: "esrs_EcologicalConstruction",
-    priority: { min: 0, max: 50 }
+    kpi: "Espacios certificados ambientalmente (%)",
+    taxonomy: "esrs_GreenConstruction",
+    priority: { min: 0, max: 100 }
   },
   {
     name: "Economía Circular",
     category: "Environmental",
     esrs: "E8",
     ods: "12",
-    kpi: "Porcentaje de materiales reciclados",
+    kpi: "Tasa de reciclaje y reutilización (%)",
     taxonomy: "esrs_CircularEconomy",
-    priority: { min: 5, max: 65 }
+    priority: { min: 0, max: 100 }
   },
   {
-    name: "Consumo Responsable",
+    name: "Consumo responsable",
     category: "Environmental",
     esrs: "E11",
     ods: "12",
-    kpi: "Uso de productos sostenibles (%)",
+    kpi: "Índice de consumo responsable (%)",
     taxonomy: "esrs_ResponsibleConsumption",
-    priority: { min: 20, max: 100 }
+    priority: { min: 0, max: 100 }
   },
   {
-    name: "Compra Sostenible",
+    name: "Gestión de Residuos",
     category: "Environmental",
-    esrs: "E12",
+    esrs: "E9",
     ods: "12",
-    kpi: "Porcentaje de proveedores sostenibles",
-    taxonomy: "esrs_SustainableProcurement",
-    priority: { min: 45, max: 100 }
-  },
-  {
-    name: "Movilidad y Transportes",
-    category: "Environmental",
-    esrs: "E13",
-    ods: "11",
-    kpi: "Reducción de emisiones por transporte (%)",
-    taxonomy: "esrs_TransportEmissions",
-    priority: { min: 40, max: 100 }
+    kpi: "Gestión efectiva de residuos (%)",
+    taxonomy: "esrs_WasteManagement",
+    priority: { min: 0, max: 100 }
   },
   // Social Topics
-  {
-    name: "Interacción Comunitaria",
-    category: "Social",
-    esrs: "S4",
-    ods: "11",
-    kpi: "Proyectos de impacto comunitario",
-    taxonomy: "esrs_CommunityEngagement",
-    priority: { min: 40, max: 100 }
-  },
-  {
-    name: "Bienestar",
-    category: "Social",
-    esrs: "S3",
-    ods: "3",
-    kpi: "Índice de bienestar",
-    taxonomy: "esrs_HealthWellbeing",
-    priority: { min: 40, max: 100 }
-  },
-  {
-    name: "Sostenibilidad académica",
-    category: "Social",
-    esrs: "S10",
-    ods: "4",
-    kpi: "Proyectos educativos sostenibles",
-    taxonomy: "esrs_AcademicSustainability",
-    priority: { min: 65, max: 100 }
-  },
   {
     name: "Derechos Humanos",
     category: "Social",
     esrs: "S1",
-    ods: "8, 10",
-    kpi: "Incidentes relacionados con DDHH",
+    ods: "16",
+    kpi: "Cumplimiento de derechos humanos (%)",
     taxonomy: "esrs_HumanRights",
-    priority: { min: 40, max: 95 }
+    priority: { min: 0, max: 100 }
   },
   {
-    name: "Innovación y Sostenibilidad",
+    name: "Innovación y Sostenibilidad en Desarrollo de Negocios",
     category: "Social",
     esrs: "S2",
     ods: "9",
-    kpi: "Nuevas iniciativas sostenibles",
-    taxonomy: "esrs_BusinessInnovation",
-    priority: { min: 20, max: 80 }
+    kpi: "Proyectos de innovación sostenible",
+    taxonomy: "esrs_SustainableInnovation",
+    priority: { min: 0, max: 100 }
+  },
+  {
+    name: "Índice de Salud y Bienestar Corporativo",
+    category: "Social",
+    esrs: "S3",
+    ods: "3",
+    kpi: "Índice de bienestar (%)",
+    taxonomy: "esrs_WellbeingIndex",
+    priority: { min: 0, max: 100 }
+  },
+  {
+    name: "Compromiso Corporativo con la Comunidad Local",
+    category: "Social",
+    esrs: "S4",
+    ods: "11",
+    kpi: "Impacto en comunidad local (%)",
+    taxonomy: "esrs_CommunityEngagement",
+    priority: { min: 0, max: 100 }
+  },
+  {
+    name: "Inclusión y Diversidad",
+    category: "Social",
+    esrs: "S5",
+    ods: "10",
+    kpi: "Índice de inclusión (%)",
+    taxonomy: "esrs_Inclusion",
+    priority: { min: 0, max: 100 }
+  },
+  {
+    name: "Privacidad, Seguridad y protección de datos",
+    category: "Social",
+    esrs: "S6",
+    ods: "16",
+    kpi: "Cumplimiento de protección de datos (%)",
+    taxonomy: "esrs_DataProtection",
+    priority: { min: 0, max: 100 }
+  },
+  {
+    name: "Desarrollo Profesional y Entorno Laboral en Empresas",
+    category: "Social",
+    esrs: "S7",
+    ods: "8",
+    kpi: "Desarrollo profesional (%)",
+    taxonomy: "esrs_ProfessionalDevelopment",
+    priority: { min: 0, max: 100 }
+  },
+  {
+    name: "Inclusión Socioeconómica y Resiliencia Empresarial",
+    category: "Social",
+    esrs: "S8",
+    ods: "1",
+    kpi: "Índice de resiliencia (%)",
+    taxonomy: "esrs_SocioeconomicResilience",
+    priority: { min: 0, max: 100 }
+  },
+  {
+    name: "Sostenibilidad Alimentaria y Nutricional",
+    category: "Social",
+    esrs: "S9",
+    ods: "2",
+    kpi: "Índice de sostenibilidad alimentaria (%)",
+    taxonomy: "esrs_FoodSustainability",
+    priority: { min: 0, max: 100 }
   },
   // Governance Topics
   {
-    name: "Stakeholders",
+    name: "Gobernanza Institucional",
+    category: "Governance",
+    esrs: "G1",
+    ods: "16",
+    kpi: "Efectividad de gobernanza (%)",
+    taxonomy: "esrs_InstitutionalGovernance",
+    priority: { min: 0, max: 100 }
+  },
+  {
+    name: "Participación de Stakeholders",
     category: "Governance",
     esrs: "G2",
     ods: "17",
-    kpi: "Número de consultas a stakeholders",
+    kpi: "Participación de grupos de interés (%)",
     taxonomy: "esrs_StakeholderEngagement",
-    priority: { min: 40, max: 100 }
+    priority: { min: 0, max: 100 }
   },
   {
-    name: "Derechos Humanos",
+    name: "Transparencia e integridad Corporativa",
     category: "Governance",
     esrs: "G3",
     ods: "16",
-    kpi: "Incidentes relacionados con DDHH",
-    taxonomy: "esrs_HumanRights",
-    priority: { min: 40, max: 100 }
+    kpi: "Índice de transparencia (%)",
+    taxonomy: "esrs_CorporateTransparency",
+    priority: { min: 0, max: 100 }
   },
   {
-    name: "Transparencia",
+    name: "Implementación de Estándares ESG",
     category: "Governance",
-    esrs: "G3",
+    esrs: "G4",
+    ods: "12",
+    kpi: "Cumplimiento de estándares ESG (%)",
+    taxonomy: "esrs_ESGStandards",
+    priority: { min: 0, max: 100 }
+  },
+  {
+    name: "Matriz de Cumplimiento ESG",
+    category: "Governance",
+    esrs: "G5",
+    ods: "12",
+    kpi: "Nivel de cumplimiento ESG (%)",
+    taxonomy: "esrs_ESGCompliance",
+    priority: { min: 0, max: 100 }
+  },
+  {
+    name: "Gestión de Riesgos y Crisis",
+    category: "Governance",
+    esrs: "G6",
     ods: "16",
-    kpi: "Índice de transparencia",
-    taxonomy: "esrs_Transparency",
-    priority: { min: 40, max: 100 }
+    kpi: "Efectividad en gestión de riesgos (%)",
+    taxonomy: "esrs_RiskManagement",
+    priority: { min: 0, max: 100 }
+  },
+  {
+    name: "Innovación Digital y CiberSeguridad",
+    category: "Governance",
+    esrs: "G7",
+    ods: "9",
+    kpi: "Nivel de seguridad digital (%)",
+    taxonomy: "esrs_CyberSecurity",
+    priority: { min: 0, max: 100 }
+  },
+  {
+    name: "Sostenibilidad Financiera",
+    category: "Governance",
+    esrs: "G8",
+    ods: "8",
+    kpi: "Índice de sostenibilidad financiera (%)",
+    taxonomy: "esrs_FinancialSustainability",
+    priority: { min: 0, max: 100 }
   }
 ];
 

@@ -643,11 +643,27 @@ class MaterialityMatrix {
     const { results } = this.state.getState();
     const headers = 'Tema,Categoría,ESRS,ODS,KPI,Puntuación Screening,Stakeholders,Materialidad';
     
+    // Helper function to escape CSV fields
+    const escapeCSV = (field) => {
+        // If field contains comma, quotes, or newline, wrap in quotes and escape existing quotes
+        if (field && (field.includes(',') || field.includes('"') || field.includes('\n'))) {
+            return `"${field.replace(/"/g, '""')}"`;
+        }
+        return field;
+    };
+
     const csvContent = [
-      headers,
-      ...Array.from(results.values()).map(r => 
-        `${r.name},${r.category},${r.esrs},${r.ods},${r.kpi},${r.score},${r.stakeholders},${r.materialidad}`
-      )
+        headers,
+        ...Array.from(results.values()).map(r => [
+            escapeCSV(r.name),
+            escapeCSV(r.category),
+            escapeCSV(r.esrs),
+            escapeCSV(r.ods),
+            escapeCSV(r.kpi),
+            r.score,
+            r.stakeholders,
+            r.materialidad
+        ].join(','))
     ].join('\n');
 
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });

@@ -1097,10 +1097,10 @@ class MaterialityMatrix {
             ctx.fillStyle = '#64748b';
             
             // Draw quadrant labels at borders
-            ctx.fillText('Baja', left + (midX - left) / 2, bottom + 35);
-            ctx.fillText('Media Baja', midX + (right - midX) / 2, bottom + 35);
-            ctx.fillText('Media Alta', left + (midX - left) / 2, top - 15);
-            ctx.fillText('Alta', midX + (right - midX) / 2, top - 15);
+            ctx.fillText('Media Baja', left + (midX - left) / 2, bottom + 35);
+            ctx.fillText('Baja', midX + (right - midX) / 2, bottom + 35);
+            ctx.fillText('Alta', left + (midX - left) / 2, top - 15);
+            ctx.fillText('Media Alta', midX + (right - midX) / 2, top - 15);
             
             // Draw quadrant labels in center of each quadrant
             ctx.font = '12px system-ui';
@@ -1112,10 +1112,10 @@ class MaterialityMatrix {
             const verticalOffset = 5;
             
             // Draw centered labels
-            ctx.fillText('MEDIA ALTA', left + quarterX, top + quarterY + verticalOffset);
-            ctx.fillText('ALTA', midX + quarterX, top + quarterY + verticalOffset);
-            ctx.fillText('BAJA', left + quarterX, midY + quarterY + verticalOffset);
-            ctx.fillText('MEDIA BAJA', midX + quarterX, midY + quarterY + verticalOffset);
+            ctx.fillText('ALTA', left + quarterX, top + quarterY + verticalOffset);
+            ctx.fillText('MEDIA ALTA', midX + quarterX, top + quarterY + verticalOffset);
+            ctx.fillText('MEDIA BAJA', left + quarterX, midY + quarterY + verticalOffset);
+            ctx.fillText('BAJA', midX + quarterX, midY + quarterY + verticalOffset);
             
             // Draw grid lines
             ctx.beginPath();
